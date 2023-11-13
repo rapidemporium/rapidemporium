@@ -73,13 +73,6 @@ function isLoggedIn(req, res, next) {
   }
 }
 
-
-const Razorpay = require("razorpay");
-var instance = new Razorpay({
-  key_id: process.env.KEY_ID,
-  key_secret: process.env.KEY_SECRET,
-});
-
 router.post('/proceed', function(req, res, next){
   //Obtain Product ID from Product Detail API
 const payload = {
