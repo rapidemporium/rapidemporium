@@ -4,12 +4,6 @@ const axios = require('axios');
 const CryptoJS = require('crypto-js');
 require('dotenv').config();
 const http = require('http');
-const userModel = require('./users');
-const localStrategy =  require('passport-local');
-const passport = require('passport');
- 
- 
- 
 
 const partnerId = process.env.YOUR_PARTNER_ID;
 const secretKey = process.env.YOUR_SECRET_KEY;
@@ -18,60 +12,6 @@ const secretKey = process.env.YOUR_SECRET_KEY;
 const { findOne } = require('./users');
 
 /* LOCAL PASSPORT STRATEGY */
-
-passport.use(
-  new localStrategy(
-    {
-      usernameField: "email",
-    },
-    userModel.authenticate()
-  )
-);
-
-
-router.post("/register", function (req, res, next) {
-  var usersRouter = new userModel({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    email: req.body.email
-  });
-  userModel.register(usersRouter, req.body.password).then(function (dets) {
-    passport.authenticate("local")(req, res, function () {
-      res.redirect("/home");
-    });
-  });
-});
-
-router.post("/login", passport.authenticate("local", {
-    successRedirect: "/home",
-    failureRedirect: "/",
-    failureFlash: true,
-  }),
-  function (req, res, next) {
-    res.redirect("/");
-  }
-);
-
-/* LOGOUT ROUTE */
-
-router.get("/logout", function (req, res, next) {
-  req.logout(function (err) {
-    if (err) {
-      return next(err);
-    }
-    res.redirect("/");
-  });
-});
-
-/* MIDDLEWARE */
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    res.redirect("/");
-  }
-}
 
 router.post('/proceed', function(req, res, next){
   //Obtain Product ID from Product Detail API
@@ -117,11 +57,11 @@ router.get('/', function(req, res, next) {
   res.render('userAuth');
 });
 
-router.get('/mlbb-moogold', isLoggedIn,  function(req, res, next){
+router.get('/mlbb-moogold', function(req, res, next){
   res.render('index');
 })
 
-router.get('/home', isLoggedIn,  async function(req, res, next){
+router.get('/home', async function(req, res, next){
   let user = await userModel.findOne({email: req.session.passport.user});
   res.render('home', {user});
 })
