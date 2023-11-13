@@ -6,7 +6,7 @@ var logger = require('morgan');
 var expressSession = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const passport = require('passport');
+
 
 var app = express();
 
@@ -14,18 +14,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(expressSession({
-  resave: false,
-  saveUninitialized: false,
-  secret: "rapidEmporium"
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-passport.serializeUser(usersRouter.serializeUser());
-passport.deserializeUser(usersRouter.deserializeUser());
-
- 
 
 app.use(logger('dev'));
 app.use(express.json());
