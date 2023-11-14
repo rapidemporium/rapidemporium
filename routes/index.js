@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/mlbb-moogold', function(req, res, next){
-    res.render('index');
+    res.render('index', {productListData});
 })
 
 
