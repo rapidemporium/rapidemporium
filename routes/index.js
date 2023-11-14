@@ -8,6 +8,7 @@ const http = require('http');
  
 const partnerId = process.env.YOUR_PARTNER_ID;
 const secretKey = process.env.YOUR_SECRET_KEY;
+var productListData = [];
 
 //other page routes --->
 /* GET home page. */
@@ -122,8 +123,9 @@ const response = await axios.post("https://moogold.com/wp-json/v1/api/product/pr
       'Content-Type': 'application/json'
   }
 })
-console.log(response.data.Variation);
-res.status(200).json(response.data.Variation);
+productListData = response.data.Variation;
+console.log(productListData);
+res.status(200).json(productListData);
 
   } catch (error) {
     console.error('Error fetching products:', error.message);
