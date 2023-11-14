@@ -46,7 +46,7 @@ axios.post("https://moogold.com/wp-json/v1/api/order/create_order", payload, {
       timestamp,
       auth,
       Authorization: `Basic ${auth_basic}`,
-      'Content-Type': 'routerlication/json'
+      'Content-Type': 'application/json'
   }
 })
 .then(response => {
@@ -65,13 +65,11 @@ axios.post("https://moogold.com/wp-json/v1/api/order/create_order", payload, {
 router.get('/products', async (req, res) => {
   try {
   
-const category_id = 1223; // Replace with the desired category ID
-const productList = {
-  path: "product/list_product",
-  data: {
+    const category_id = 50; // Replace with the desired category ID
+    const productList = {
+      path: "product/list_product",
       category_id: category_id
-  }
-}
+    };
     
 // Make a request to the MooGold API with Basic Authentication
 const timestamp = Math.floor(Date.now() / 1000);
@@ -80,21 +78,16 @@ const STRING_TO_SIGN = JSON.stringify(productList) + timestamp + path;
 const auth = CryptoJS.HmacSHA256(STRING_TO_SIGN, secretKey).toString();
 const auth_basic = Buffer.from(`${partnerId}:${secretKey}`).toString('base64');
 
-axios.post("https://moogold.com/wp-json/v1/api/product/list_product", productList, {
+const response = await axios.post("https://moogold.com/wp-json/v1/api/product/list_product", productList, {
   headers: {
       timestamp,
       auth,
       Authorization: `Basic ${auth_basic}`,
-      'Content-Type': 'routerlication/json'
+      'Content-Type': 'application/json'
   }
 })
-.then(response => {
-  console.log(response.data);
-})
-.catch(error => {
-  console.error(error);
-  console.log("We are Facing Some issue");
-});
+console.log(response.data);
+res.status(200).json(response.data);
 
   } catch (error) {
     console.error('Error fetching products:', error.message);
