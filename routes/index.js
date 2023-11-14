@@ -95,7 +95,43 @@ res.status(200).json(response.data);
   }
 });
 
+
+//product details
+
+router.get('/products/details', async (req, res) => {
+  try {
+  
+    const product_id = 7847; // Replace with the desired category ID
+    const productList = {
+      path: "product/product_detail",
+      product_id: product_id
+    };
+    
+// Make a request to the MooGold API with Basic Authentication
+const timestamp = Math.floor(Date.now() / 1000);
+const path = "product/product_detail";
+const STRING_TO_SIGN = JSON.stringify(productList) + timestamp + path;
+const auth = CryptoJS.HmacSHA256(STRING_TO_SIGN, secretKey).toString();
+const auth_basic = Buffer.from(`${partnerId}:${secretKey}`).toString('base64');
+
+const response = await axios.post("https://moogold.com/wp-json/v1/api/product/product_detail", productList, {
+  headers: {
+      timestamp,
+      auth,
+      Authorization: `Basic ${auth_basic}`,
+      'Content-Type': 'application/json'
+  }
+})
+console.log(response.data);
+res.status(200).json(response.data);
+
+  } catch (error) {
+    console.error('Error fetching products:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
  
+
 
 
 module.exports = router;
