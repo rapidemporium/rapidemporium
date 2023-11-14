@@ -14,7 +14,7 @@
       <nav class="navbar">
         <div class="container">
           <a class="navbar-brand" href="#">
-           <span><%= mlbbData %></span>
+           <span>Name</span>
           </a>
         </div>
       </nav>
@@ -30,7 +30,9 @@
             <div class="head"><h1>Mlbb: Special</h1></div>
             <div class="sub-head"><h4>Daimonds:</h4></div>
             <div class="items">
-            
+             <% productListData.forEach(function(items){ %>
+              <div class="item-card"><%= items.variation_name %></div>
+             <% }) %>
             </div>
           </div>
 
