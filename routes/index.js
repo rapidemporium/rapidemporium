@@ -65,7 +65,7 @@ axios.post("https://moogold.com/wp-json/v1/api/order/create_order", payload, {
 router.get('/products', async (req, res) => {
   try {
   
-    const category_id = 50; // Replace with the desired category ID
+    const category_id = 15145; // Replace with the desired category ID
     const productList = {
       path: "product/list_product",
       category_id: category_id
