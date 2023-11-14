@@ -8,7 +8,7 @@ const http = require('http');
  
 const partnerId = process.env.YOUR_PARTNER_ID;
 const secretKey = process.env.YOUR_SECRET_KEY;
-
+var mlbbData = null;
 //other page routes --->
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/mlbb-moogold', function(req, res, next){
-  res.render('index');
+    res.render('index', {mlbbData});
 })
 
 
@@ -124,7 +124,7 @@ const response = await axios.post("https://moogold.com/wp-json/v1/api/product/pr
 })
 console.log(response.data);
 res.status(200).json(response.data);
-
+mlbbData = response.data;
   } catch (error) {
     console.error('Error fetching products:', error.message);
     res.status(500).json({ error: 'Internal Server Error' });
