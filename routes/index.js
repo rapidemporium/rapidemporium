@@ -123,7 +123,7 @@ const response = await axios.post("https://moogold.com/wp-json/v1/api/product/pr
       'Content-Type': 'application/json'
   }
 })
-productListData = response.data.Variation;
+productListData = response.data;
 console.log(productListData);
 res.status(200).json(productListData);
 
