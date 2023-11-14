@@ -15,10 +15,10 @@ var items = [{quantity: "14 💎", price:"14"},
 ]
 
 //print items-----
-items.forEach(function(item){
-    document.querySelector(".items").innerHTML += `
-    <div class="item-card">${item.quantity}</div>`
-})
+//items.forEach(function(item){
+//    document.querySelector(".items").innerHTML += `
+//    <div class="item-card">${item.quantity}</div>`
+//})
 //--------------------
 
 var itemList = document.querySelectorAll(".item-card");
