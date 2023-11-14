@@ -31,15 +31,6 @@
             <div class="sub-head"><h4>Daimonds:</h4></div>
             <div class="items">
 
-             <% let extractedStrings = productListData.map(item => { %>
-             <% let match = item.variation_name.match(/\d+\sDiamonds\s\+\s\d+\sBonus/); %>
-             <% return match ? match[0] : "Pattern not found"; %>
-             <% }); %>
-              
-           <% extractedStrings.forEach(function(items, index){ %>
-              <div class="item-card"><%= items %></div>
-           <%  }) %>
-
             </div>
           </div>
 
