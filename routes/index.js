@@ -4,6 +4,8 @@ const axios = require('axios');
 const CryptoJS = require('crypto-js');
 require('dotenv').config();
 const http = require('http');
+const fs = require('fs');
+const mobileLegends = require('../API/mobile-legends.json');
 
  
 const partnerId = process.env.YOUR_PARTNER_ID;
@@ -17,7 +19,19 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/mlbb-moogold', function(req, res, next){
-    res.render('index', {productListData});
+   fs.readFile('API/mobile-legends.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error reading the file');
+      return;
+    }
+    const mobileLegendData = JSON.parse(data);
+    let mobileLegendList = [];
+    mobileLegendList = mobileLegendData.Variation;
+    console.log(mobileLegendList)
+    // Render the 'index' view and pass 'mobileLegendData' data to it
+    res.render('index', { mobileLegendList });
+  });
 })
 
 
