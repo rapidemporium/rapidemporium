@@ -1,25 +1,26 @@
-var items = [{quantity: "14 💎", price:"14"},
-{quantity: "28 💎", price:"1"},
-{quantity: "42 💎", price:"42"},
-{quantity: "70 💎", price:"70"},
-{quantity: "84 💎", price:"84"},
-{quantity: "140 💎", price:"0"},
-{quantity: "284 💎", price:"100"},
-{quantity: "355 💎", price:"1080"},
-{quantity: "429 💎", price:"450"},
-{quantity: "716 💎", price:"440"},
-{quantity: "1446 💎", price:"40"},
-{quantity: "2976 💎", price:"450"},
-{quantity: "1446 💎", price:"890"},
-{quantity: "7502 💎", price:"5250"}
-]
+ // var items = [{quantity: "14 💎", price:"14"},
+// {quantity: "28 💎", price:"1"},
+// {quantity: "42 💎", price:"42"},
+// {quantity: "70 💎", price:"70"},
+// {quantity: "84 💎", price:"84"},
+// {quantity: "140 💎", price:"0"},
+// {quantity: "284 💎", price:"100"},
+// {quantity: "355 💎", price:"1080"},
+// {quantity: "429 💎", price:"450"},
+// {quantity: "716 💎", price:"440"},
+// {quantity: "1446 💎", price:"40"},
+// {quantity: "2976 💎", price:"450"},
+// {quantity: "1446 💎", price:"890"},
+// {quantity: "7502 💎", price:"5250"}
+//]
 
 //print items-----
-//items.forEach(function(item){
-//    document.querySelector(".items").innerHTML += `
-//    <div class="item-card">${item.quantity}</div>`
-//})
+// items.forEach(function(item){
+//     document.querySelector(".items").innerHTML += `
+//     <div class="item-card">${item.quantity}</div>`
+// })
 //--------------------
+ 
 
 var itemList = document.querySelectorAll(".item-card");
 var rs = document.querySelector(".rs");
@@ -38,18 +39,17 @@ var warn = document.getElementById("warn");
 
 //on click find item ----- >
 itemList.forEach(function(itemcard, index){
-     itemcard.addEventListener("click", function(event){
-        var clickedItem = items[index];
-         rs.innerHTML = clickedItem.price;
-         choosed.innerHTML = clickedItem.quantity;
-         console.log(clickedItem.price);
-         priceCard.style.display = "flex";
+    itemcard.addEventListener("click", function(event){
+    const price = itemcard.getAttribute("data_price");
+    const finalPrice = Math.round(price*82.99);
+    document.querySelector(".cart>h5").innerHTML = finalPrice
+
 
 
          // Check if the form fields are filled
         if (userIdInput.value !== "" && serverIdInput.value !== "" && emailInput.value !== "") {
             // Set the data-final attribute of the "Buy" button to the item's price
-            buyButton.setAttribute("data-final", clickedItem.price);
+            buyButton.setAttribute("data-final", price);
             warn.style.display = "none";
             console.log("filled");
         } else {
@@ -66,7 +66,7 @@ itemList.forEach(function(itemcard, index){
         }
          
          //Setting Attribute to purchase button-------------->
-        //  buyButton.setAttribute("data-final", clickedItem.price);
+        //  buyButton.setAttribute("data-final", price);
      })
     
 })
@@ -106,8 +106,3 @@ emailInput.addEventListener("input", function(){
 
 
 //setting atribute for email -------->
-
-
-
-
-
