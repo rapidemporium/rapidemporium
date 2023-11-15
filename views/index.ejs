@@ -30,7 +30,9 @@
             <div class="head"><h1>Mlbb: Special</h1></div>
             <div class="sub-head"><h4>Daimonds:</h4></div>
             <div class="items">
-
+             <% mobileLegendList.reverse().forEach((legend) => { %>
+                <div class="item-card" data_price="<%= legend.variation_price %>" ><%=legend.variation_name%></div>
+              <% }); %>
             </div>
           </div>
 
@@ -43,26 +45,29 @@
           </div>
           <span id="warn">Please fill the form before selecting daimonds</span>
 
+        
          <!-- input form  -->
-         <form method="post" action="/proceed">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">User ID <span>Enter your User ID</span></label>
-            <input type="number" name="userid" placeholder="E.g. 123456789" maxlength="10" class="form-control" id="exampleInputEmail1" required>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Server ID <span>Enter your Server ID</span></label>
-            <input type="number" name="serverid" placeholder="E.g. 4567" maxlength="5" class="form-control" id="exampleInputPassword1" required>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Email <span>Enter your Email</span></label>
-            <input type="email" name="email" placeholder="example@gmail.com" class="form-control" id="exampleInputPassword2" required>
-          </div>
-          
-          <div class="buttons">
-            <button type="" id="addtocart" class="btn">Add to Cart</button>
-            <button type="submit" id="rzp-button1" class="btn">Buy</button>
-          </div>
-        </form>
+        <div class="form-container">
+          <form method="post" action="/proceed">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">User ID <span>Enter your User ID</span></label>
+              <input type="number" name="userid" placeholder="E.g. 123456789" maxlength="10" class="form-control" id="exampleInputEmail1" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Server ID <span>Enter your Server ID</span></label>
+              <input type="number" name="serverid" placeholder="E.g. 4567" maxlength="5" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Email <span>Enter your Email</span></label>
+              <input type="email" name="email" placeholder="example@gmail.com" class="form-control" id="exampleInputPassword2" required>
+            </div>
+            
+            <div class="buttons">
+              <button type="" id="addtocart" class="btn">Add to Cart</button>
+              <button type="submit" id="rzp-button1" class="btn">Buy</button>
+            </div>
+          </form>
+        </div>
         </div>
       </div>
 
