@@ -5,147 +5,42 @@
     {
       "variation_name": "7740 Diamonds + 1548 Bonus 💎",
       "variation_id": 5555341,
-      "variation_price": 128.86
+      "variation_price": 12000
     },
     {
       "variation_name": "4649 Diamonds + 883 Bonus 💎",
       "variation_id": 5555342,
-      "variation_price": 77.32
+      "variation_price": 7300
     },
     {
       "variation_name": "3099 Diamonds + 589 Bonus 💎",
       "variation_id": 5555343,
-      "variation_price": 51.55
+      "variation_price": 4830
     },
     {
       "variation_name": "1860 Diamonds + 335 Bonus 💎",
       "variation_id": 5555344,
-      "variation_price": 30.93
+      "variation_price": 2880
     },
     {
       "variation_name": "625 Diamonds + 81 Bonus 💎",
       "variation_id": 5555345,
-      "variation_price": 10.31
+      "variation_price": 950
     },
     {
       "variation_name": "234 Diamonds + 23 Bonus 💎",
       "variation_id": 5555346,
-      "variation_price": 3.87
+      "variation_price": 345
     },
     {
       "variation_name": "156 Diamonds + 16 Bonus 💎",
       "variation_id": 5555347,
-      "variation_price": 2.58
+      "variation_price": 172
     },
     {
       "variation_name": "78 Diamonds + 8 Bonus 💎",
       "variation_id": 5555348,
-      "variation_price": 1.29
-    },
-    {
-      "variation_name": "10 + 1 Diamonds 💎",
-      "variation_id": 4700134,
-      "variation_price": 0.16
-    },
-    {
-      "variation_name": "20 + 2 Diamonds 💎",
-      "variation_id": 4700148,
-      "variation_price": 0.32
-    },
-    {
-      "variation_name": "51 + 5 Diamonds 💎",
-      "variation_id": 4700149,
-      "variation_price": 0.81
-    },
-    {
-      "variation_name": "102 + 10 Diamonds 💎",
-      "variation_id": 4700152,
-      "variation_price": 1.61
-    },
-    {
-      "variation_name": "203 + 20 Diamonds 💎",
-      "variation_id": 4700153,
-      "variation_price": 3.23
-    },
-    {
-      "variation_name": "303 + 33 Diamonds 💎",
-      "variation_id": 4700155,
-      "variation_price": 4.84
-    },
-    {
-      "variation_name": "504 + 66 Diamonds 💎",
-      "variation_id": 4700157,
-      "variation_price": 8.07
-    },
-    {
-      "variation_name": "1007 + 156 Diamonds 💎",
-      "variation_id": 4700158,
-      "variation_price": 16.15
-    },
-    {
-      "variation_name": "2015 + 383 Diamonds 💎",
-      "variation_id": 4700160,
-      "variation_price": 32.3
-    },
-    {
-      "variation_name": "5035 + 1007 Diamonds 💎",
-      "variation_id": 4700161,
-      "variation_price": 80.74
-    },
-    {
-      "variation_name": "14 Diamonds 💎",
-      "variation_id": 4690759,
-      "variation_price": 0.21
-    },
-    {
-      "variation_name": "42 Diamonds 💎",
-      "variation_id": 4690772,
-      "variation_price": 0.64
-    },
-    {
-      "variation_name": "70 Diamonds 💎",
-      "variation_id": 4690774,
-      "variation_price": 1.06
-    },
-    {
-      "variation_name": "140 Diamonds 💎",
-      "variation_id": 4690775,
-      "variation_price": 2.12
-    },
-    {
-      "variation_name": "284 Diamonds 💎",
-      "variation_id": 4690776,
-      "variation_price": 4.25
-    },
-    {
-      "variation_name": "355 Diamonds 💎",
-      "variation_id": 4690777,
-      "variation_price": 5.31
-    },
-    {
-      "variation_name": "429 Diamonds 💎",
-      "variation_id": 4690778,
-      "variation_price": 6.37
-    },
-    {
-      "variation_name": "716 Diamonds 💎",
-      "variation_id": 4690779,
-      "variation_price": 10.62
-    },
-    {
-      "variation_name": "1446 Diamonds 💎",
-      "variation_id": 4690780,
-      "variation_price": 21.24
-    },
-    {
-      "variation_name": "2976 Diamonds 💎",
-      "variation_id": 4690781,
-      "variation_price": 42.48
-    },
-    {
-      "variation_name": "7502 Diamonds 💎",
-      "variation_id": 4690782,
-      "variation_price": 106.2
+      "variation_price": 120 
     },
     {
       "variation_name": "Weekly Pass 💎",
@@ -158,9 +53,114 @@
       "variation_price": 8.5
     },
     {
+      "variation_name": "7502 Diamonds 💎",
+      "variation_id": 4690782,
+      "variation_price": 106.2
+    },
+    {
+      "variation_name": "5035 + 1007 Diamonds 💎",
+      "variation_id": 4700161,
+      "variation_price": 80.74
+    },
+    {
+      "variation_name": "2976 Diamonds 💎",
+      "variation_id": 4690781,
+      "variation_price": 42.48
+    },
+    {
+      "variation_name": "2015 + 383 Diamonds 💎",
+      "variation_id": 4700160,
+      "variation_price": 32.3
+    },
+    {
+      "variation_name": "1446 Diamonds 💎",
+      "variation_id": 4690780,
+      "variation_price": 21.24
+    },
+    {
+      "variation_name": "1007 + 156 Diamonds 💎",
+      "variation_id": 4700158,
+      "variation_price": 16.15
+    },
+    {
+      "variation_name": "716 Diamonds 💎",
+      "variation_id": 4690779,
+      "variation_price": 10.62
+    },
+    {
+      "variation_name": "504 + 66 Diamonds 💎",
+      "variation_id": 4700157,
+      "variation_price": 8.07
+    },
+    {
+      "variation_name": "429 Diamonds 💎",
+      "variation_id": 4690778,
+      "variation_price": 6.37
+    },
+    {
+      "variation_name": "355 Diamonds 💎",
+      "variation_id": 4690777,
+      "variation_price": 5.31
+    },
+    {
+      "variation_name": "303 + 33 Diamonds 💎",
+      "variation_id": 4700155,
+      "variation_price": 4.84
+    },
+    {
+      "variation_name": "284 Diamonds 💎",
+      "variation_id": 4690776,
+      "variation_price": 4.25
+    },
+    {
+      "variation_name": "203 + 20 Diamonds 💎",
+      "variation_id": 4700153,
+      "variation_price": 3.23
+    },
+    {
+      "variation_name": "140 Diamonds 💎",
+      "variation_id": 4690775,
+      "variation_price": 2.12
+    },
+    {
+      "variation_name": "102 + 10 Diamonds 💎",
+      "variation_id": 4700152,
+      "variation_price": 1.61
+    },
+    {
+      "variation_name": "70 Diamonds 💎",
+      "variation_id": 4690774,
+      "variation_price": 105
+    },
+    {
+      "variation_name": "51 + 5 Diamonds 💎",
+      "variation_id": 4700149,
+      "variation_price": 90
+    },
+    {
+      "variation_name": "42 Diamonds 💎",
+      "variation_id": 4690772,
+      "variation_price": 70
+    },
+    {
+      "variation_name": "20 + 2 Diamonds 💎",
+      "variation_id": 4700148,
+      "variation_price": 40
+    },
+    {
+      "variation_name": "14 Diamonds 💎",
+      "variation_id": 4690759,
+      "variation_price": 30
+    },
+    {
+      "variation_name": "10 + 1 Diamonds 💎",
+      "variation_id": 4700134,
+      "variation_price": 20
+    },
+    {
       "variation_name": "5 Diamonds 💎",
       "variation_id": 578634,
-      "variation_price": 0.11
+      "variation_price": 1
     }
   ],
   "fields": ["User ID", "Server ID"]

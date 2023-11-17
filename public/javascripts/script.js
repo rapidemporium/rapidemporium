@@ -1,33 +1,11 @@
- // var items = [{quantity: "14 💎", price:"14"},
-// {quantity: "28 💎", price:"1"},
-// {quantity: "42 💎", price:"42"},
-// {quantity: "70 💎", price:"70"},
-// {quantity: "84 💎", price:"84"},
-// {quantity: "140 💎", price:"0"},
-// {quantity: "284 💎", price:"100"},
-// {quantity: "355 💎", price:"1080"},
-// {quantity: "429 💎", price:"450"},
-// {quantity: "716 💎", price:"440"},
-// {quantity: "1446 💎", price:"40"},
-// {quantity: "2976 💎", price:"450"},
-// {quantity: "1446 💎", price:"890"},
-// {quantity: "7502 💎", price:"5250"}
-//]
 
-//print items-----
-// items.forEach(function(item){
-//     document.querySelector(".items").innerHTML += `
-//     <div class="item-card">${item.quantity}</div>`
-// })
-//--------------------
- 
 
 var itemList = document.querySelectorAll(".item-card");
 var rs = document.querySelector(".rs");
 var choosed = document.querySelector("#choosed");
 var priceCard = document.querySelector(".wrapper");
 var clear = document.querySelector(".clear");
-var buyButton = document.getElementById("rzp-button1");
+var buyButton = document.getElementById("rzp-button2");
 
 // Form Validation ----------->
 var userIdInput = document.getElementById("exampleInputEmail1");
@@ -37,32 +15,43 @@ var warn = document.getElementById("warn");
 
 
 
+
+
 //on click find item ----- >
 itemList.forEach(function(itemcard, index){
     itemcard.addEventListener("click", function(event){
     const price = itemcard.getAttribute("data_price");
-    const finalPrice = Math.round(price*82.99);
-    document.querySelector(".cart>h5").innerHTML = finalPrice
+    const itemid = itemcard.getAttribute('item_id');
+    const itemName = itemcard.getAttribute('item_name');
+    console.log("price:", price);
+    const finalPrice = price;
+    document.querySelector(".rs").innerHTML = finalPrice;
+    buyButton.setAttribute('data-final', price);
+    document.getElementById('payErr').style.display = "none";
 
-
+    // var userItem = document.querySelector("#productID");
+    // userItem.setAttribute('user-item', itemid);
+    // userItem.value = itemName;
 
          // Check if the form fields are filled
-        if (userIdInput.value !== "" && serverIdInput.value !== "" && emailInput.value !== "") {
+        if (userIdInput.value !== "" && serverIdInput.value !== "") {
             // Set the data-final attribute of the "Buy" button to the item's price
             buyButton.setAttribute("data-final", price);
             warn.style.display = "none";
             console.log("filled");
+            priceCard.style.display = "flex";
+            
         } else {
             // If the form fields are empty, set the data-final attribute to 0
             buyButton.setAttribute("data-final", "0");
             userIdInput.style.border = "2px solid red";
             serverIdInput.style.border = "2px solid red";
-            emailInput.style.border = "2px solid red";
+            // emailInput.style.border = "2px solid red";
             warn.style.display = "initial";
             rs.innerHTML = "0";
             choosed.innerHTML = "0";
             priceCard.style.display = "none";
-
+            
         }
          
          //Setting Attribute to purchase button-------------->
@@ -70,6 +59,16 @@ itemList.forEach(function(itemcard, index){
      })
     
 })
+
+// buy button error handling
+// buyButton.addEventListener("click", function(){
+//     if(priceCard.style.display = "none"){
+//         document.getElementById('payErr').style.display = "initial";
+//     }else{
+//         document.getElementById('payErr').style.display = "none";
+//         priceCard.style.display = "flex";
+//     }
+// })
 
 //------------------------------
 
@@ -96,13 +95,12 @@ serverIdInput.addEventListener("input", function(){
         serverIdInput.style.border = "2px solid red";
     }
 })
-emailInput.addEventListener("input", function(){
-    if(emailInput.value.length > 0){
-        emailInput.style.border = "1px solid #000";
-    }else{
-        emailInput.style.border = "2px solid red";
-    }
-})
-
+// emailInput.addEventListener("input", function(){
+//     if(emailInput.value.length > 0){
+//         emailInput.style.border = "1px solid #000";
+//     }else{
+//         emailInput.style.border = "2px solid red";
+//     }
+// })
 
 //setting atribute for email -------->

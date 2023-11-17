@@ -144,10 +144,10 @@ span{
   width: 88%;
   height: 15vh;
   /* margin-top: 4vh; */
-  display: none;
   align-items: center;
   position: relative;
   top: 12vh;
+  display: none;
   left: -50vw;
 
 }
@@ -180,6 +180,8 @@ font-family: "gilroy";
   color: red;
   position: relative;
   top: 14vh;
+  display: none;
+  background: transparent;
   left: -60vw;
 }
 
@@ -193,4 +195,35 @@ margin-left: -100vw;
   position: relative;
   left: -70vw;
   top: 12vh;
+  display: none;
+}
+
+#rzp-button2{
+ 
+}
+
+#payErr{
+  color: red;
+  position: relative;
+  left: -60vw;
+  top: 52vh;;
+  display: none;
+}
+
+#mlbb-playername{
+  outline: none;
+  border: none;
+  color: green;
+  width: 55%;
+}
+
+#mlbb-playerid{
+  outline: none;
+  border: none;
+  color: green;
+  width: 55%;
+}
+.verify-err{
+  color: red;
+  display: none;
 }
