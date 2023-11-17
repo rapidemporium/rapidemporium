@@ -36,6 +36,7 @@ res.status(201).json({
 });
 
 }catch(err){
+console.log(err);
 console.log("We are facing some problem, please try again after some time!")
 }
 
