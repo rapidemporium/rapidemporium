@@ -14,7 +14,6 @@ serverid = serverIdInput.value;
 
 console.log(userid);
 console.log(serverid);
-console.log("price of item: " + final);
 })
 
 
