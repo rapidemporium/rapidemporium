@@ -8,6 +8,7 @@ var gameName = document.getElementById('exampleModalLabel');
 var button2 = document.getElementById('rzp-button2');
 var Info = document.querySelector(".info");
 var verifyErr = document.querySelector(".verify-err");
+var isVarify = document.querySelector(".isVerify");
 
 var buyButton = document.querySelector("#rzp-button1");
 
@@ -32,17 +33,29 @@ try {
 	const response = await axios.request(options);
   const playerInfo = response.data;
 
+  const pattern = /^[0-9@]+$/;
+
+  if(pattern.test(playerInfo.data.username)){
+    verifyErr.style.display = "initial";
+    verifyErr.innerHTML = "Enter valid playerID or Try after some time";
+    Info.style.display = "none";
+    button2.style.display = "none";
+  }else{
     gameName.innerHTML = playerInfo.data.game;
     playerName.value = playerInfo.data.username;
     playerId.value = playerInfo.data.userId;
     button2.style.display = "initial";
     verifyErr.style.display = "none";
+    isVarify.style.display = "initial";
+  }
+
+ 
 
    
 } catch (error) {
 	console.error(error);
   verifyErr.style.display = "initial";
-  verifyErr.innerHTML = "Enter valid playerID or  Try after some time";
+  verifyErr.innerHTML = "Enter valid playerID or Try after some time";
   Info.style.display = "none";
   button2.style.display = "none";
 }
