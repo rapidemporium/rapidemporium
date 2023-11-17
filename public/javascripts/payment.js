@@ -37,7 +37,7 @@ document.getElementById('rzp-button2').onclick = async function(e){
     // Retrieve the value of "final" from the data attribute
     var final = buyButton.getAttribute('data-final');
 
-    let response = await fetch("http://localhost:3000/payment", {
+    let response = await fetch("https://rapidemporium-7hhh.onrender.com/payment", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -64,11 +64,11 @@ document.getElementById('rzp-button2').onclick = async function(e){
         // alert(response.razorpay_order_id);
         // alert(response.razorpay_signature)
         alert("Order Confirmed");
-        window.location.href = `http://localhost:3000/proceed/${userid}/${serverid}/${itemid}`
+        window.location.href = `https://rapidemporium-7hhh.onrender.com/proceed/${userid}/${serverid}/${itemid}`
         // window.location.href = `http://localhost:3000/pay-status/${response.razorpay_order_id}`;
 
 $.ajax({
-    url: 'http://localhost:3000/pay-verify',
+    url: 'https://rapidemporium-7hhh.onrender.com/pay-verify',
     type: 'POST',
     data: {
         razorpay_order_id: response.razorpay_order_id,
