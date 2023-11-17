@@ -31,7 +31,7 @@ itemList.forEach(function(itemCard){
  
 
 
-document.getElementById('rzp-button2').onclick = async function(e){
+buyButton.onclick = async function(e){
     e.preventDefault();
 
     // Retrieve the value of "final" from the data attribute
