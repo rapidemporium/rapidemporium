@@ -101,10 +101,10 @@ const payload = {
   path: "order/create_order",
   data: {
         category: "1",
-        "product-id": "2400430",
+        "product-id": "4690774",
         quantity: "1",
-        "Player ID": "12314123",
-        Server: "Asia Pacific - Eden"
+        "User ID": "830847469",
+        "Server ID": "12302"
   }
 };
 
