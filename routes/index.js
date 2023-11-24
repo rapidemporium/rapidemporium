@@ -100,11 +100,12 @@ router.get('/proceed/:userid/:serverid/:itemid', function(req, res, next){
 const payload = {
   path: "order/create_order",
   data: {
-        category: "15145",
+        category: "1",
         "product-id": "4700134",
         quantity: "1",
         "Player ID": "830847469",
-        Server: "Asia Pacific - Eden"
+	"Server ID": "12302",
+         Server: "Asia Pacific - Eden"
   }
 };
 
