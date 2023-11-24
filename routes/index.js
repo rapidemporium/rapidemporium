@@ -101,11 +101,10 @@ const payload = {
   path: "order/create_order",
   data: {
         category: "1",
-        "product-id": "4700134",
+        "product-id": "1874705",
         quantity: "1",
-        "Player ID": "830847469",
-	"Server ID": "12302",
-         Server: "Asia Pacific - Eden"
+        "Player ID": "12314123",
+        Server: "Asia Pacific - Eden"
   }
 };
 
@@ -177,7 +176,7 @@ res.status(200).json(response.data);
 router.get('/products/details', async (req, res) => {
   try {
     
-    const product_id = 15145; // Replace with the desired category ID
+    const product_id = 1874665; // Replace with the desired category ID
     const productList = {
       path: "product/product_detail",
       product_id: product_id
