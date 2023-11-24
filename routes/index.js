@@ -92,7 +92,11 @@ router.get('/proceed/:userid/:serverid/:itemid', function(req, res, next){
   const userid = req.params.userid;
   const serverid = req.params.serverid;
   const itemid = req.params.itemid;
-
+	
+  console.log("user: ", userid);
+  console.log("server: ", serverid);
+  console.log("item: ", itemid)
+	
 const payload = {
   path: "order/create_order",
   data: {
