@@ -176,7 +176,7 @@ res.status(200).json(response.data);
 router.get('/products/details', async (req, res) => {
   try {
     
-    const product_id = 15145; // Replace with the desired category ID
+    const product_id = 1874665; // Replace with the desired category ID
     const productList = {
       path: "product/product_detail",
       product_id: product_id
