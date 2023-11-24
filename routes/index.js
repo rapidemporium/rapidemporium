@@ -100,7 +100,7 @@ router.get('/proceed/:userid/:serverid/:itemid', function(req, res, next){
 const payload = {
   path: "order/create_order",
   data: {
-      category: "1",
+      category: "50",
       "product-id": itemid,
       quantity: "1",
       "Player ID": userid,
