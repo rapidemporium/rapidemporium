@@ -79,7 +79,7 @@ router.get('/mlbb-moogold', function(req, res, next){
     const mobileLegendData = JSON.parse(data);
     let mobileLegendList = [];
     mobileLegendList = mobileLegendData.Variation;
-    console.log(mobileLegendList)
+    
     // Render the 'index' view and pass 'mobileLegendData' data to it
     res.render('index', { mobileLegendList });
   });
@@ -100,11 +100,11 @@ router.get('/proceed/:userid/:serverid/:itemid', function(req, res, next){
 const payload = {
   path: "order/create_order",
   data: {
-      category: "50",
-      "product-id": itemid,
-      quantity: "1",
-      "Player ID": userid,
-      Server: "Asia Pacific - Eden"
+         category: "1",
+        "product-id": "1874705",
+        quantity: "1",
+        "Player ID": "12314123",
+        Server: "Asia Pacific - Eden"
   }
 };
 
