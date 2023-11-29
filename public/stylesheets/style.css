@@ -198,13 +198,13 @@ margin-left: -100vw;
   display: none;
 }
 
-/* #rzp-button2{
+#rzp-button2{
  display: none;
-} */
+} 
 
-/* #whatsappBtn{
+ #whatsappBtn{
   display: none;
-} */
+} 
 
 #payErr{
   color: red;
