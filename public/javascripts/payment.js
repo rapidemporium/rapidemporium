@@ -65,7 +65,7 @@ document.getElementById('rzp-button2').onclick = async function(e){
     // Retrieve the value of "final" from the data attribute
     var final = buyButton.getAttribute('data-final');
 
-    let response = await fetch("http://localhost:3000/payment", {
+    let response = await fetch("https://rapidemporium-7hhh.onrender.com/payment", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -92,7 +92,7 @@ document.getElementById('rzp-button2').onclick = async function(e){
         // alert(response.razorpay_order_id);
         // alert(response.razorpay_signature)
         alert("Order Confirmed");
-        window.location.href = `http://localhost:3000/proceed/${userid}/${serverid}/${itemid}/${productQuantity}`
+        window.location.href = `https://rapidemporium-7hhh.onrender.com/proceed/${userid}/${serverid}/${itemid}/${productQuantity}`
         // window.location.href = `http://localhost:3000/pay-status/${response.razorpay_order_id}`;
 
 $.ajax({
@@ -140,7 +140,7 @@ whatsappBtn.addEventListener('click', function(){
         // Retrieve the value of "final" from the data attribute
         var final = buyButton.getAttribute('data-final');
     
-        let response = await fetch("http://localhost:3000/payment", {
+        let response = await fetch("https://rapidemporium-7hhh.onrender.com/payment", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -167,7 +167,7 @@ whatsappBtn.addEventListener('click', function(){
             // alert(response.razorpay_order_id);
             // alert(response.razorpay_signature)
             alert("Order Confirmed");
-            window.location.href = `http://localhost:3000/send/${userid}/${serverid}/${itemid}/${itemname}/${price}/${response.razorpay_order_id}/${dateFormat}/${formattedTime}/${productQuantity}`
+            window.location.href = `https://rapidemporium-7hhh.onrender.com/send/${userid}/${serverid}/${itemid}/${itemname}/${price}/${response.razorpay_order_id}/${dateFormat}/${formattedTime}/${productQuantity}`
             // window.location.href = `http://localhost:3000/pay-status/${response.razorpay_order_id}`;
     
     $.ajax({
