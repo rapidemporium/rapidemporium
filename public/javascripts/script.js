@@ -1,5 +1,5 @@
 
-
+var price, itemid, itemName;
 var itemList = document.querySelectorAll(".item-card");
 var rs = document.querySelector(".rs");
 var choosed = document.querySelector("#choosed");
@@ -15,14 +15,12 @@ var warn = document.getElementById("warn");
 
 
 
-
-
 //on click find item ----- >
 itemList.forEach(function(itemcard, index){
     itemcard.addEventListener("click", function(event){
-    const price = itemcard.getAttribute("data_price");
-    const itemid = itemcard.getAttribute('item_id');
-    const itemName = itemcard.getAttribute('item_name');
+     price = itemcard.getAttribute("data_price");
+     itemid = itemcard.getAttribute('item_id');
+     itemName = itemcard.getAttribute('item_name');
     console.log("price:", price);
     const finalPrice = price;
     document.querySelector(".rs").innerHTML = finalPrice;
@@ -104,3 +102,36 @@ serverIdInput.addEventListener("input", function(){
 // })
 
 //setting atribute for email -------->
+
+//Whatsapp Integration ------->
+
+var player_id = null;
+var server_id = null;
+
+var whatsappBtn = document.getElementById('whatsappBtn');
+whatsappBtn.addEventListener("click", function(){
+player_id = userIdInput.value;
+server_id = server_id.value;
+})
+
+
+
+//Quantity Counter
+function increaseCount(a, b) {
+    var input = b.previousElementSibling;
+    var value = parseInt(input.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    input.value = value;
+  }
+  
+  function decreaseCount(a, b) {
+    var input = b.nextElementSibling;
+    var value = parseInt(input.value, 10);
+    if (value > 1) {
+      value = isNaN(value) ? 0 : value;
+      value--;
+      input.value = value;
+    }
+  }
+  

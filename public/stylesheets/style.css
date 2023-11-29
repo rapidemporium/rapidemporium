@@ -198,9 +198,13 @@ margin-left: -100vw;
   display: none;
 }
 
-#rzp-button2{
+/* #rzp-button2{
+ display: none;
+} */
 
-}
+/* #whatsappBtn{
+  display: none;
+} */
 
 #payErr{
   color: red;
@@ -226,4 +230,38 @@ margin-left: -100vw;
 .verify-err{
   color: red;
   display: none;
+}
+
+.isVerify{
+  margin-right: 39vw !important;
+  color: green;
+  display: none;
+}
+
+/* Quantity Counter */
+.counter {
+  width: 150px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.counter input {
+  width: 50px;
+  border: 0;
+  line-height: 30px;
+  font-size: 20px;
+  text-align: center;
+  background: #0052cc;
+  color: #fff;
+  appearance: none;
+  outline: 0;
+}
+.counter span {
+  display: block;
+  font-size: 25px;
+  padding: 0 10px;
+  cursor: pointer;
+  color: #0052cc;
+  user-select: none;
 }

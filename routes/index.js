@@ -4,10 +4,13 @@ const axios = require('axios');
 const CryptoJS = require('crypto-js');
 require('dotenv').config();
 const http = require('http');
+var bodyParser = require('body-parser');
 const fs = require('fs');
 const mobileLegends = require('../API/mobile-legends.json');
 const Razorpay = require("razorpay");
- 
+const { sendMessage, getTextMessageInput } = require("../public/javascripts/messageapi");
+router.use(bodyParser.json());
+
 const partnerId = process.env.YOUR_PARTNER_ID;
 const secretKey = process.env.YOUR_SECRET_KEY;
 
@@ -36,7 +39,6 @@ res.status(201).json({
 });
 
 }catch(err){
-console.log(err);
 console.log("We are facing some problem, please try again after some time!")
 }
 
@@ -79,7 +81,6 @@ router.get('/mlbb-moogold', function(req, res, next){
     const mobileLegendData = JSON.parse(data);
     let mobileLegendList = [];
     mobileLegendList = mobileLegendData.Variation;
-    
     // Render the 'index' view and pass 'mobileLegendData' data to it
     res.render('index', { mobileLegendList });
   });
@@ -87,24 +88,21 @@ router.get('/mlbb-moogold', function(req, res, next){
 
 
 //creating order
-router.get('/proceed/:userid/:serverid/:itemid', function(req, res, next){
+router.get('/proceed/:userid/:serverid/:itemid/:quantity', function(req, res, next){
   //Obtain Product ID from Product Detail API
   const userid = req.params.userid;
   const serverid = req.params.serverid;
   const itemid = req.params.itemid;
-	
-  console.log("user: ", userid);
-  console.log("server: ", serverid);
-  console.log("item: ", itemid)
-	
+  const quantity = req.params.quantity;
+
 const payload = {
   path: "order/create_order",
   data: {
-        category: "1",
-        "product-id": itemid,
-        quantity: "1",
-        "User ID": userid,
-        "Server ID": serverid
+    category: "1",
+    "product-id": itemid,
+    quantity: quantity,
+    "User ID": userid,
+    "Server ID": serverid
   }
 };
 
@@ -176,7 +174,7 @@ res.status(200).json(response.data);
 router.get('/products/details', async (req, res) => {
   try {
     
-    const product_id = 1874665; // Replace with the desired category ID
+    const product_id = 15145; // Replace with the desired category ID
     const productList = {
       path: "product/product_detail",
       product_id: product_id
@@ -208,36 +206,44 @@ mlbbData = response.data;
 });
 
 
-// router.post('/player-varification', async function(req, res, next){
-
-// const userid = req.body.userid;
-// const serverid = req.body.serverid;
-
-// const options = {
-//   method: 'GET',
-//   url: `https://id-game-checker.p.rapidapi.com/mobile-legends/${userid}/${serverid}`,
-//   headers: {
-//     'X-RapidAPI-Key': '30e2096546msh25496d9f35b184fp15ed6cjsnc60b405c5d89',
-//     'X-RapidAPI-Host': 'id-game-checker.p.rapidapi.com'
-//   }
-// };
-
-// try {
-// 	const response = await axios.request(options);
-//   const playerInfo = response.data;
-	
-//   res.json(playerInfo);
-  
-// } catch (error){
-// 	console.error(error);
-//   console.log("Try After 1 Min");
-// }
-// })
- 
-
 router.get('/pay-status/:orderid', function(req, res){
   res.render('paywindow');
 })
 
 
+router.get("/mlbb-beta", function(req, res){
+  fs.readFile('API/mobile-legends.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error reading the file');
+      return;
+    }
+    const mobileLegendData = JSON.parse(data);
+    let mobileLegendList = [];
+    mobileLegendList = mobileLegendData.Variation;
+    // Render the 'index' view and pass 'mobileLegendData' data to it
+    res.render('mlbbBeta', { mobileLegendList });
+  });
+})
+
+router.get('/send/:playerid/:serverid/:itemid/:itemname/:price/:orderid/:dateformat/:time/:quantity', function(req, res, next) {
+
+const {playerid, serverid, itemid, itemname, price, orderid, dateformat, time, quantity} = req.params;
+ 
+   var data =  getTextMessageInput(process.env.RECIPIENT_WAID, playerid, serverid, itemid, itemname, price, orderid, dateformat, time, quantity);
+  
+   sendMessage(data)
+     .then(function (response) {
+       res.redirect('/');
+       console.log("Message sent!")
+       return;
+     })
+     .catch(function (error) {
+       console.log(error);
+       res.sendStatus(500);
+       return;
+     });
+});
+
 module.exports = router;
+
