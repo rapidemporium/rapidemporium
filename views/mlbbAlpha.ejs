@@ -1,21 +1,9 @@
-<title>MLBB: Beta Pack</title>
+<title>MLBB: Alpha Pack</title>
 <%- include('./partials/sider.ejs') %>
 <link rel="stylesheet" href="/stylesheets/style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link rel="stylesheet" href="/stylesheets/mobileresponsive.css">
-<style>
-  .item-card{
-    font-size: 1.2vw;
-  }
-  @media only screen and (max-width: 600px) {
-    .item-card {
-    width: 42vw !important;
-    font-size: 2.3vw !important;
-    /* background: red; */
-}
-  }
 
-</style>
 <!--Screen Loader-->
 <div id="preventTouching">
   <div class="loader">
@@ -149,9 +137,9 @@ centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="fa
         <div class="products">
             <div class="heading" style="padding-bottom: 10px;">Mobile Legends: Alpha</div>
             <div class="list-products" style="overflow: auto;">
-              <% let counter = 0; %>
-              <% mobileLegendList.forEach((legend) => { %>
-              <%  if (counter < 8){ %>
+                <% let counter = 0; %>
+              <% mobileLegendList.reverse().forEach((legend) => { %>
+              <%  if (counter < 24){ %>
                   <div class="item-card" item_name="<%=legend.variation_name%>" item_id="<%=legend.variation_id%>"  data_price="<%= legend.variation_price %>" ><%=legend.variation_name%></div>
               <%    counter++;   %>
               <%  }; %>
@@ -163,6 +151,7 @@ centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="fa
     </div>
      
 </div>
+
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -188,7 +177,3 @@ centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="fa
 
 </body>
 </html>
-
-
-
-

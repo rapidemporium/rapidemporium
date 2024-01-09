@@ -1,4 +1,3 @@
-
 var price, itemid, itemName;
 var itemList = document.querySelectorAll(".item-card");
 var rs = document.querySelector(".rs");
@@ -6,57 +5,59 @@ var choosed = document.querySelector("#choosed");
 var priceCard = document.querySelector(".wrapper");
 var clear = document.querySelector(".clear");
 var buyButton = document.getElementById("rzp-button2");
-
+var fullScreen = document.querySelector('.fullScreen');
+var halfScreen = document.querySelector('.halfScreen');
+var last = document.querySelector('.last');
 // Form Validation ----------->
 var userIdInput = document.getElementById("exampleInputEmail1");
 var serverIdInput = document.getElementById("exampleInputPassword1");
 var emailInput = document.getElementById("exampleInputPassword2");
 var warn = document.getElementById("warn");
-
-
+var counterVal = 1;
 
 //on click find item ----- >
-itemList.forEach(function(itemcard, index){
-    itemcard.addEventListener("click", function(event){
-     price = itemcard.getAttribute("data_price");
-     itemid = itemcard.getAttribute('item_id');
-     itemName = itemcard.getAttribute('item_name');
-    console.log("price:", price);
-    const finalPrice = price;
+itemList.forEach(function (itemcard, index) {
+  itemcard.addEventListener("click", function (event) {
+    price = itemcard.getAttribute("data_price");
+    itemid = itemcard.getAttribute("item_id");
+    itemName = itemcard.getAttribute("item_name");
+    const numberPrice = parseFloat(price);
+    const paltformFee = numberPrice + 0.03;
+    const addQuantity = paltformFee * counterVal;
+    const finalPrice = addQuantity.toFixed(2);
+
     document.querySelector(".rs").innerHTML = finalPrice;
-    buyButton.setAttribute('data-final', price);
-    document.getElementById('payErr').style.display = "none";
+    buyButton.setAttribute("data-final", price);
+    document.getElementById("payErr").style.display = "none";
 
     // var userItem = document.querySelector("#productID");
     // userItem.setAttribute('user-item', itemid);
     // userItem.value = itemName;
 
-         // Check if the form fields are filled
-        if (userIdInput.value !== "" && serverIdInput.value !== "") {
-            // Set the data-final attribute of the "Buy" button to the item's price
-            buyButton.setAttribute("data-final", price);
-            warn.style.display = "none";
-            console.log("filled");
-            priceCard.style.display = "flex";
-            
-        } else {
-            // If the form fields are empty, set the data-final attribute to 0
-            buyButton.setAttribute("data-final", "0");
-            userIdInput.style.border = "2px solid red";
-            serverIdInput.style.border = "2px solid red";
-            // emailInput.style.border = "2px solid red";
-            warn.style.display = "initial";
-            rs.innerHTML = "0";
-            choosed.innerHTML = "0";
-            priceCard.style.display = "none";
-            
-        }
-         
-         //Setting Attribute to purchase button-------------->
-        //  buyButton.setAttribute("data-final", price);
-     })
-    
-})
+    // Check if the form fields are filled
+    if (userIdInput.value !== "" && serverIdInput.value !== "") {
+      // Set the data-final attribute of the "Buy" button to the item's price
+      buyButton.setAttribute("data-final", price);
+      warn.style.display = "none";
+      document.getElementById("choosed").innerHTML = itemName;
+      console.log("filled");
+      // priceCard.style.display = "flex";
+    } else {
+      // If the form fields are empty, set the data-final attribute to 0
+      buyButton.setAttribute("data-final", "0");
+      userIdInput.style.border = "2px solid red";
+      serverIdInput.style.border = "2px solid red";
+      // emailInput.style.border = "2px solid red";
+      warn.style.display = "initial";
+      rs.innerHTML = "0";
+      choosed.innerHTML = "0";
+      // priceCard.style.display = "none";
+    }
+
+    //Setting Attribute to purchase button-------------->
+    //  buyButton.setAttribute("data-final", price);
+  });
+});
 
 // buy button error handling
 // buyButton.addEventListener("click", function(){
@@ -70,29 +71,28 @@ itemList.forEach(function(itemcard, index){
 
 //------------------------------
 
-clear.addEventListener("click", function(){
-    rs.innerHTML = "0";
-    choosed.innerHTML = "0";
-    priceCard.style.display = "none";
-       //Setting Attribute to purchase button-------------->
-       buyButton.setAttribute("data-final", 0);
-})
+clear.addEventListener("click", function () {
+  rs.innerHTML = "0";
+  choosed.innerHTML = "0";
+  priceCard.style.display = "none";
+  //Setting Attribute to purchase button-------------->
+  buyButton.setAttribute("data-final", 0);
+});
 
-
-userIdInput.addEventListener("input", function(){
-    if(userIdInput.value.length > 0){
-        userIdInput.style.border = "1px solid #000";
-    }else{
-        userIdInput.style.border = "2px solid red";
-    }
-})
-serverIdInput.addEventListener("input", function(){
-    if(serverIdInput.value.length > 0){
-        serverIdInput.style.border = "1px solid #000";
-    }else{
-        serverIdInput.style.border = "2px solid red";
-    }
-})
+userIdInput.addEventListener("input", function () {
+  if (userIdInput.value.length > 0) {
+    userIdInput.style.border = "1px solid #000";
+  } else {
+    userIdInput.style.border = "2px solid red";
+  }
+});
+serverIdInput.addEventListener("input", function () {
+  if (serverIdInput.value.length > 0) {
+    serverIdInput.style.border = "1px solid #000";
+  } else {
+    serverIdInput.style.border = "2px solid red";
+  }
+});
 // emailInput.addEventListener("input", function(){
 //     if(emailInput.value.length > 0){
 //         emailInput.style.border = "1px solid #000";
@@ -108,30 +108,72 @@ serverIdInput.addEventListener("input", function(){
 var player_id = null;
 var server_id = null;
 
-var whatsappBtn = document.getElementById('whatsappBtn');
-whatsappBtn.addEventListener("click", function(){
-player_id = userIdInput.value;
-server_id = server_id.value;
-})
-
-
+var whatsappBtn = document.getElementById("whatsappBtn");
+whatsappBtn.addEventListener("click", function () {
+  player_id = userIdInput.value;
+  server_id = server_id.value;
+});
 
 //Quantity Counter
 function increaseCount(a, b) {
-    var input = b.previousElementSibling;
-    var value = parseInt(input.value, 10);
+  var input = b.previousElementSibling;
+  var value = parseInt(input.value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  input.value = value;
+  counterVal = document.querySelector(".counter>input").value;
+}
+
+function decreaseCount(a, b) {
+  var input = b.nextElementSibling;
+  var value = parseInt(input.value, 10);
+  if (value > 1) {
     value = isNaN(value) ? 0 : value;
-    value++;
+    value--;
     input.value = value;
+    counterVal = document.querySelector(".counter>input").value;
   }
-  
-  function decreaseCount(a, b) {
-    var input = b.nextElementSibling;
-    var value = parseInt(input.value, 10);
-    if (value > 1) {
-      value = isNaN(value) ? 0 : value;
-      value--;
-      input.value = value;
-    }
-  }
-  
+}
+
+//responsive script for mobile device
+var counter = document.querySelector(".counter");
+var buttons = document.querySelector(".buttons");
+var input = document.getElementById("exampleInputEmail1");
+var input2 = document.getElementById("exampleInputPassword1");
+
+if (window.innerWidth <= 600) {
+  //on FOCUS
+  input.addEventListener("focus", () => {
+    counter.style.display = "none";
+    buttons.style.display = "none";
+  });
+  input2.addEventListener("focus", () => {
+    counter.style.display = "none";
+    buttons.style.display = "none";
+  });
+
+  //on BLUR
+  input.addEventListener("blur", () => {
+    counter.style.display = "flex";
+    buttons.style.display = "flex";
+  });
+  input2.addEventListener("blur", () => {
+    counter.style.display = "flex";
+    buttons.style.display = "flex";
+  });
+}
+
+
+fullScreen.addEventListener("click", function(){
+  fullScreen.style.display = "none"
+  halfScreen.style.display = "initial"
+  last.style.position = "absolute";
+  last.style.zIndex = "2";
+})
+
+halfScreen.addEventListener("click", function(){
+  fullScreen.style.display = "initial"
+  halfScreen.style.display = "none"
+  last.style.position = "relative";
+  last.style.zIndex = "1";
+})
