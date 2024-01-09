@@ -8,12 +8,14 @@ var buyButton = document.getElementById("rzp-button2");
 var fullScreen = document.querySelector('.fullScreen');
 var halfScreen = document.querySelector('.halfScreen');
 var last = document.querySelector('.last');
+var rupee = document.getElementById('rupee');
 // Form Validation ----------->
 var userIdInput = document.getElementById("exampleInputEmail1");
 var serverIdInput = document.getElementById("exampleInputPassword1");
 var emailInput = document.getElementById("exampleInputPassword2");
 var warn = document.getElementById("warn");
 var counterVal = 1;
+var priceWithQuantity = 0;
 
 //on click find item ----- >
 itemList.forEach(function (itemcard, index) {
@@ -25,7 +27,7 @@ itemList.forEach(function (itemcard, index) {
     const paltformFee = numberPrice + 0.03;
     const addQuantity = paltformFee * counterVal;
     const finalPrice = addQuantity.toFixed(2);
-
+    priceWithQuantity = paltformFee;
     document.querySelector(".rs").innerHTML = finalPrice;
     buyButton.setAttribute("data-final", price);
     document.getElementById("payErr").style.display = "none";
@@ -122,6 +124,7 @@ function increaseCount(a, b) {
   value++;
   input.value = value;
   counterVal = document.querySelector(".counter>input").value;
+  rupee.innerHTML = (priceWithQuantity * counterVal).toFixed(2);
 }
 
 function decreaseCount(a, b) {
@@ -133,6 +136,7 @@ function decreaseCount(a, b) {
     input.value = value;
     counterVal = document.querySelector(".counter>input").value;
   }
+  rupee.innerHTML = (priceWithQuantity * counterVal).toFixed(2);
 }
 
 //responsive script for mobile device
