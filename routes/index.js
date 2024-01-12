@@ -214,8 +214,8 @@ router.get("/products/details", async (req, res) => {
       }
     );
     console.log(response.data);
-    res.status(200).json(response.data);
-    mlbbData = response.data.variation_price;
+    res.status(200).json(response.data.variation_price);
+    mlbbData = response.data;
   } catch (error) {
     console.error("Error fetching products:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
